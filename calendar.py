@@ -2,8 +2,8 @@
 
 
 
-months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-
+months = {"January":31, "February":28, "March":31, "April":30, "May":31, "June":30, "July":31, "August":31,
+          "September":30, "October":31, "November":30, "December":31}
 
 
 def ask_year():
@@ -30,7 +30,32 @@ def ask_month():
         ask_month()
     else:
         print("correct")
+        print(month)
+        return str(month)
         #month = input("Enter the month: ")
+
+
+
+
+
+
+
+#print(months.values())
+
+
+ask_year()
+#ask_month()
+the_month = ask_month()
+
+def check_days_in_month(day):
+    print("checking")
+    for mon in months:
+        if the_month == mon:
+            if int(day) > int(months[mon]):
+                print("You have exceeded the number of days for this month.")
+                return True
+        else:
+            return False
 
 def ask_day():
     day = input("Enter the day: ")
@@ -40,7 +65,11 @@ def ask_day():
     except ValueError:
         print("Please enter the day as a number")
         day = input("Enter the day: ")
+    #check_days_in_month(day)
+    if check_days_in_month(day) == True:
+        ask_day()
+    else:
+        return
 
-ask_year()
-ask_month()
+#print(the_month)
 ask_day()
