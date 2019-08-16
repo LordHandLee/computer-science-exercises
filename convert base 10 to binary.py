@@ -7,14 +7,10 @@ while True:
         newnumber =  number // 2
         print(newnumber)
         binary.append(number%2)
-        #print(str(binary))
-        #print(format(newnumber, '.0f'))
         if 0 < newnumber < 2:
             print(str(binary))
             return
         else:
             convert_from_base_ten_to_binary(newnumber)
-
-
 
     convert_from_base_ten_to_binary(number_to_convert)
